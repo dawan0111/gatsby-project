@@ -1,0 +1,13 @@
+.blogItem {
+  width: 100%;
+}
+.blogItem__header {
+  width: 100%;
+}
+.blogItem__body {
+  width: 100%;
+}
+.blogItem__title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
