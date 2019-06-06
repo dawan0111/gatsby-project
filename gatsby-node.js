@@ -11,9 +11,14 @@ const path = require('path')
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
-
   const blogPostTemplate = path.resolve(`src/templates/MarkdownTemplate.js`)
-  
+
+  createPage({
+    path: '/about',
+    component: path.resolve('./src/templates/AboutTemplate.js'),
+    context: {},
+  })
+
   return graphql(`
     {
       allMarkdownRemark(
@@ -45,7 +50,7 @@ exports.createPages = ({ actions, graphql }) => {
     const posts = result.data.allMarkdownRemark.edges
     const postsPerPage = 12
     const numPages = Math.ceil(posts.length / postsPerPage)
-  
+
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `/blog` : `/blog/${i + 1}`,
