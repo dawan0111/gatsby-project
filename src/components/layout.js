@@ -31,8 +31,8 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <Container>
-          <main>{children}</main>
+        <Container fluid={true} className="layout-container">
+          <main className="container-main">{children}</main>
           <footer>
             © {new Date().getFullYear()}, Built with
             {` `}

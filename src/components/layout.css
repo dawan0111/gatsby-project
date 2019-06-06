@@ -616,3 +616,11 @@ pre tt:after {
     font-size: 100%;
   }
 }
+.layout-container {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+.container-main {
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+}

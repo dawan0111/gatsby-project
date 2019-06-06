@@ -5,7 +5,7 @@ export const headerNavs = [
   },
   {
     name: 'Posts',
-    link: '/post',
+    link: '/blog',
   },
   {
     name: 'Resume',

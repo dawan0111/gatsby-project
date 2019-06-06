@@ -1,31 +1,45 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { Grid } from 'semantic-ui-react'
+import { Grid, Pagination } from 'semantic-ui-react'
 
+import style from '../css/modules/blogTemplate.module.css'
 import Layout from '../components/layout'
 import BlogItem from '../components/BlogItem'
 
 export default class BlogList extends React.Component {
   render() {
+    const { numPages, currentPage } = this.props.pathContext;
     const posts = this.props.data.allMarkdownRemark.edges
     return (
       <Layout>
-        <Grid columns={3}>
+        <Grid columns={4}>
           <Grid.Row>
             {posts.map(({ node }, index) => {
-              const { title, thumbnail } = node.frontmatter;
+              const { title, thumbnail, path } = node.frontmatter;
               return (
                 <Grid.Column key={index}>
                   <BlogItem
                     title={title}
                     image={thumbnail.publicURL}
+                    path={path}
                   />
                 </Grid.Column>
               )
             })}
           </Grid.Row>
         </Grid>
+
+        <div className={style.blog__pagination}>
+          <Pagination
+            defaultActivePage={currentPage}
+            ellipsisItem={null}
+            firstItem={null}
+            lastItem={null}
+            siblingRange={2}
+            totalPages={numPages}
+          />
+        </div>
       </Layout>
     )
   }
@@ -42,6 +56,7 @@ export const blogListQuery = graphql`
         node {
           frontmatter {
             title
+            path
             thumbnail {
               publicURL
             }

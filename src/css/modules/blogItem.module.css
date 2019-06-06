@@ -1,11 +1,26 @@
 .blogItem {
+  display: block;
   width: 100%;
+}
+.blogItem:hover {
+  color: inherit;
+}
+.blogItem:hover .blogItem__title {
+  text-decoration: underline;
 }
 .blogItem__header {
   width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.blogItem__header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .blogItem__body {
   width: 100%;
+  padding: 1rem 0;
 }
 .blogItem__title {
   font-size: 1.2rem;
