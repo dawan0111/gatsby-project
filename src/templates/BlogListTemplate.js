@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 
 import { Grid, Pagination } from 'semantic-ui-react'
 
+import style from '../css/modules/blogTemplate.module.css'
 import Layout from '../components/layout'
 import BlogItem from '../components/BlogItem'
 
@@ -12,15 +13,16 @@ export default class BlogList extends React.Component {
     const posts = this.props.data.allMarkdownRemark.edges
     return (
       <Layout>
-        <Grid columns={3}>
+        <Grid columns={4}>
           <Grid.Row>
             {posts.map(({ node }, index) => {
-              const { title, thumbnail } = node.frontmatter;
+              const { title, thumbnail, path } = node.frontmatter;
               return (
                 <Grid.Column key={index}>
                   <BlogItem
                     title={title}
                     image={thumbnail.publicURL}
+                    path={path}
                   />
                 </Grid.Column>
               )
@@ -48,6 +50,7 @@ export const blogListQuery = graphql`
         node {
           frontmatter {
             title
+            path
             thumbnail {
               publicURL
             }

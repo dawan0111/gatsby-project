@@ -8,8 +8,8 @@ import { headerNavs } from '../_config';
 
 const Header = ({ siteTitle }) => (
   <header className={styles.header}>
-    <Container>
-      <div className={styles.header__rap}>
+    <Container fluid={true}>
+      <div className={`container-main ${styles.header__rap}`}>
         <h2 style={{ margin: 0 }}>
           <Link
             to="/"
