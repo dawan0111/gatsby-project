@@ -1,13 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { Grid } from 'semantic-ui-react'
+import { Grid, Pagination } from 'semantic-ui-react'
 
 import Layout from '../components/layout'
 import BlogItem from '../components/BlogItem'
 
 export default class BlogList extends React.Component {
   render() {
+    const { numPages, currentPage } = this.props.pathContext;
     const posts = this.props.data.allMarkdownRemark.edges
     return (
       <Layout>
@@ -26,6 +27,11 @@ export default class BlogList extends React.Component {
             })}
           </Grid.Row>
         </Grid>
+
+        <Pagination
+          defaultActivePage={currentPage}
+          totalPages={numPages}
+        />
       </Layout>
     )
   }

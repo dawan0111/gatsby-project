@@ -10,3 +10,8 @@ a {
 html {
   overflow: auto;
 }
+
+.main-container {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
