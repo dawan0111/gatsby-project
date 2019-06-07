@@ -1,6 +1,10 @@
 .blogItem {
   display: block;
   width: 100%;
+  border-radius: 3px;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, .1);
+  overflow: hidden;
+  background: #fff;
 }
 .blogItem:hover {
   color: inherit;
@@ -10,19 +14,24 @@
 }
 .blogItem__header {
   width: 100%;
-  height: 200px;
-  overflow: hidden;
 }
 .blogItem__header img {
   width: 100%;
   height: 100%;
+  margin-bottom: 0;
   object-fit: cover;
 }
 .blogItem__body {
   width: 100%;
-  padding: 1rem 0;
+  padding: 1.5rem 1rem;
 }
 .blogItem__title {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  padding-bottom: 1rem;
   margin-bottom: 1rem;
+  border-bottom: 1px solid #ededed;
+}
+.blogItem__info {
+  font-size: .8rem;
+  color: #666;
 }

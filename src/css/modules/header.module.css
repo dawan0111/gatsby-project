@@ -1,5 +1,6 @@
 .header {
-  background: #f2f4f8;
+  background: #fff;
+  border-bottom: 1px solid #ededed;
   color: black;
 }
 .header__logo {

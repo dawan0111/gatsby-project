@@ -1,3 +1,6 @@
+.blogTemplate__container {
+  background: #f9f9f9;
+}
 .blog__pagination {
   text-align: center;
   margin: 2rem 0;

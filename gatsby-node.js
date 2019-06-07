@@ -19,6 +19,11 @@ exports.createPages = ({ actions, graphql }) => {
     context: {},
   })
 
+  createPage({
+    path: '/blog',
+    component: path.resolve(`./src/templates/BlogListTemplate.js`),
+  })
+
   return graphql(`
     {
       allMarkdownRemark(
@@ -44,23 +49,6 @@ exports.createPages = ({ actions, graphql }) => {
         path: node.frontmatter.path,
         component: blogPostTemplate,
         context: {},
-      })
-    })
-
-    const posts = result.data.allMarkdownRemark.edges
-    const postsPerPage = 12
-    const numPages = Math.ceil(posts.length / postsPerPage)
-
-    Array.from({ length: numPages }).forEach((_, i) => {
-      createPage({
-        path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-        component: path.resolve(`./src/templates/BlogListTemplate.js`),
-        context: {
-          limit: postsPerPage,
-          skip: i * postsPerPage,
-          numPages,
-          currentPage: i + 1
-        }
       })
     })
   })

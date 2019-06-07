@@ -18,7 +18,7 @@ import 'semantic-ui-css/semantic.min.css'
 import "./layout.css"
 import '../css/basic.css'
 
-const Layout = ({ children }) => (
+const Layout = ({ children, containerClassName }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -32,13 +32,8 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <Container fluid={true} className="layout-container">
+        <Container fluid={true} className={`layout-container ${containerClassName || ''}`}>
           <main className="container-main">{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
         </Container>
         <Footer />
       </>

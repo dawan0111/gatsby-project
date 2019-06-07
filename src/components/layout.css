@@ -621,6 +621,14 @@ pre tt:after {
   padding-bottom: 2.5rem;
 }
 .container-main {
-  padding-left: 3.5rem;
-  padding-right: 3.5rem;
+  width: 1400px;
+  margin: 0 auto;
+}
+
+
+@media only screen and (max-width: 1400px) {
+  .container-main {
+    width: 100%;
+    margin: 0 auto;
+  }
 }
