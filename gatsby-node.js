@@ -44,11 +44,14 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    result.data.allMarkdownRemark.edges.forEach(({ node }, index, array) => {
       createPage({
         path: node.frontmatter.path,
         component: blogPostTemplate,
-        context: {},
+        context: {
+          prevPostPath: index === 0 ? '' : array[index - 1].node.frontmatter.path,
+          nextPostPath: index === array.length - 1 ? '' : array[index + 1].node.frontmatter.path
+        },
       })
     })
   })
